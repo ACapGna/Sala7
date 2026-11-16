@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070708">
+<meta name="description" content="Sala 7: películas, series, anime y manga en un solo sitio.">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+<link rel="icon" type="image/png" sizes="180x180" href="/icon-180.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<title>Sala 7 · Películas, series, anime y manga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <button class="brand" id="brand" aria-label="Ir a la página principal"><span class="lg">7</span><span class="tx">Sala 7</span></button>
+  <div id="tabs">
+    <button class="tb" data-t="home" aria-pressed="true" title="Inicio"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span><span class="lb">Inicio</span></button>
+    <button class="tb" data-t="movie" aria-pressed="false" title="Películas"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 4v16M16 4v16M3 9h5M3 15h5M16 9h5M16 15h5"/></svg></span><span class="lb">Películas</span></button>
+    <button class="tb" data-t="tv" aria-pressed="false" title="Series"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="13" rx="3"/><path d="M8 21h8M9 2.5l3 2.5 3-2.5"/></svg></span><span class="lb">Series</span></button>
+    <button class="tb" data-t="anime" aria-pressed="false" title="Anime"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8z"/></svg></span><span class="lb">Anime</span></button>
+    <button class="tb" data-t="manga" aria-pressed="false" title="Manga"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 4 4.5v13c4 0 6.5.5 8 2 1.5-1.5 4-2 8-2v-13c-4 0-6.5.5-8 2z"/><path d="M12 6.5v13"/></svg></span><span class="lb">Manga</span></button>
+    <button class="tb" data-t="history" aria-pressed="false" title="Seguir viendo"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.7l5 3.3-5 3.3z"/></svg></span><span class="lb" data-s="Seguir">Seguir viendo</span></button>
+    <button class="tb" data-t="list" aria-pressed="false" title="Mi lista"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h10A1.5 1.5 0 0118.5 5v15.5L12 16.5l-6.5 4V5A1.5 1.5 0 017 3.5z"/></svg></span><span class="lb">Mi lista</span></button>
+  </div>
+  <form class="tsf" id="tsf" role="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="tq" type="search" placeholder="Buscar…" aria-label="Buscar" autocomplete="off"><div class="sug" id="sug" hidden></div></form><button class="acb" id="acb" type="button" aria-label="Cuenta"></button>
+</div></nav>
+<main class="wrap" id="page"></main>
+
+<dialog id="ld"><div class="ldw">
+  <button class="ldx" id="ldx" type="button" aria-label="Cerrar">✕</button>
+  <div class="ldh" id="ldh"></div>
+  <div id="ldl" class="ldl"></div>
+  <form id="ldf" class="ldf"><input id="ldn" placeholder="Crear una lista nueva…" maxlength="40" autocomplete="off"><button class="btn ghost" type="submit">＋ Añadir</button></form>
+  <div class="ldb"><button class="btn ghost" id="ldc" type="button">Cancelar</button><button class="btn" id="lds" type="button">Guardar</button></div>
+</div></dialog>
+
+<dialog id="tvh"><div class="ldw">
+  <button class="ldx" id="tvx" type="button" aria-label="Cerrar">✕</button>
+  <div class="ldh"><h2>Ver en la tele</h2><small>Elige la forma que mejor te funcione</small></div>
+  <ul class="tvl">
+    <li><b>Chrome o Edge (Chromecast / Smart TV)</b><span>Menú ⋮ → «Guardar, compartir y enviar» → «Enviar…». Elige tu tele y, en «Fuentes», «Enviar pestaña». Después pulsa «Pantalla completa» en la app.</span></li>
+    <li><b>Windows</b><span>Pulsa Win + K y elige tu tele para proyectar la pantalla.</span></li>
+    <li><b>iPhone o iPad</b><span>Centro de control → «Duplicar pantalla» (AirPlay) y elige la tele.</span></li>
+    <li><b>Android</b><span>Ajustes rápidos → «Transmitir» o «Smart View».</span></li>
+    <li><b>Cable HDMI</b><span>Es lo más estable: conecta el ordenador a la tele y usa «Pantalla completa».</span></li>
+  </ul>
+  <div class="ldb"><button class="btn ghost" id="tvo" type="button">↗ Abrir solo el reproductor</button><button class="btn" id="tvc" type="button">Entendido</button></div>
+</div></dialog>
+
+<div id="pv" hidden role="dialog" aria-modal="true" aria-label="Reproductor">
+  <div class="pv-bg" id="pvbg"></div><div class="pv-shade"></div>
+  <div class="pv-in">
+    <header class="pv-h">
+      <button class="btn ghost sm" id="close">← Volver</button>
+      <div class="pv-t"><h2 id="dt"></h2><span class="mono" id="dsub"></span></div>
+      <i></i>
+    </header>
+    <div class="stage" id="stage">
+      <div id="pl"></div>
+      <button class="btn sm xfs" id="xfs">✕ Cerrar pantalla completa</button>
+    </div>
+    <div class="prog" id="prog"></div>
+    <div class="dock" id="ctl">
+      <div class="row">
+        <button class="btn ghost sm" id="bPrev" data-a="prev">⏮ Anterior</button>
+        <button class="btn ghost sm" id="bNext" data-a="next">Siguiente ⏭</button>
+        <button class="btn sm fsb" id="fs">⛶ Pantalla completa</button>
+        <button class="btn ghost sm" id="newtab" title="Abre el reproductor solo, en una pestaña nueva">↗ Abrir aparte</button>
+        <button class="btn ghost sm" id="tvcast" title="Enviar a una tele o pantalla">Enviar a la TV</button>
+      </div>
+      <div class="row">
+        <label class="pill" id="alp" hidden>Reproductor <select id="aprov"><option value="fx">FrameXTV (AniList)</option><option value="fxp">FrameXTV .pro (alternativa)</option><option value="ae">AniEmbed</option><option value="fxm">FrameXTV (MAL)</option></select></label>
+        <label class="pill" id="mpp">Reproductor <select id="mprov"><option value="xyz">FrameXTV</option><option value="pro">FrameXTV .pro (alternativa)</option></select></label>
+        <div hidden>
+        <label class="pill nx" id="srvp">Servidor <select id="srv"><option value="">Auto</option><option>barbarian</option><option>archer</option><option>goblin</option><option>pekka</option></select></label>
+        <button class="btn ghost sm nx" data-a="back">−10 s</button>
+        <button class="btn ghost sm nx" data-a="play">▶ Reproducir</button>
+        <button class="btn ghost sm nx" data-a="pause">⏸ Pausa</button>
+        <button class="btn ghost sm nx" data-a="fwd">+10 s</button>
+        <select id="alang"><option value="sub">Subtitulado</option><option value="dub">Doblado (inglés)</option></select>
+        <select id="spd"><option>0.5</option><option selected>1</option></select>
+        <input type="range" id="vol" min="0" max="1" step="0.05" value="0.8"><button data-a="mute">Mute</button>
+        <input type="checkbox" id="es"><input type="checkbox" id="safe" checked>
+        </div>
+      </div>
+    </div>
+    <div class="tvbox" id="tvbox" hidden>
+      <button class="epbtn" id="epopen" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h12M4 12h12M4 18h7M17 14l5 4-5 4z"/></svg><span class="t"><b>Episodios</b><small id="epcur"></small></span><span>⌄</span></button>
+      <div hidden>
+      <div class="tvh"><h4>Episodios</h4><div class="row"><label class="pill" id="rgp" hidden>Rango <select id="rgs"></select></label><label class="pill" id="sep">Temporada <select id="sea"></select></label></div></div>
+      <div class="eps" id="eps"></div>
+      </div>
+    </div>
+    <p class="info" id="ov"></p>
+  </div>
+</div>
+
+<dialog id="acd"><div class="acw" id="acw"></div></dialog>
+<div class="es" id="es2" hidden><div class="es-bd" id="es2b"></div><div class="es-pn" role="dialog" aria-label="Episodios"><div class="es-grip"></div><div class="es-h"><div><h3>Episodios</h3><p id="es2s"></p></div><button class="es-x" id="es2x" type="button" aria-label="Cerrar">✕</button></div><label class="es-ss" id="es2sea" hidden>Temporada <select id="es2sel"></select></label><div id="es2l"></div></div></div>
+<div id="rd" hidden role="dialog" aria-modal="true" aria-label="Lector de manga">
+  <div class="rd-bar">
+    <button class="btn ghost sm" id="rdClose">← Volver</button>
+    <div class="rd-t"><b id="rdT"></b><span class="mono" id="rdC"></span></div>
+    <div class="row">
+      <button class="btn ghost sm" id="rdPrev" title="Capítulo anterior">⏮ Anterior</button>
+      <button class="btn ghost sm" id="rdNext" title="Capítulo siguiente">Siguiente ⏭</button>
+      <label class="pill">Fuente <select id="rdSrc"><option value="mdx">MangaDex (lector propio)</option><option value="plus">MANGA Plus</option><option value="lm">LectorManga</option><option value="im">InManga</option></select></label>
+      <button class="btn sm fsb" id="rdFs">⛶ Pantalla completa</button>
+      <a class="btn ghost sm" id="rdOpen" target="_blank" rel="noopener noreferrer" style="text-decoration:none">↗ Pestaña nueva</a>
+    </div>
+  </div>
+  <div class="rd-note" id="rdN"></div>
+  <div class="rd-stage" id="rstage">
+    <iframe id="rdf" title="Lector de manga" allow="fullscreen *" allowfullscreen hidden></iframe>
+    <div class="rdp" id="rdp"></div>
+    <button class="btn sm xfs" id="rxfs">✕ Cerrar pantalla completa</button>
+  </div>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

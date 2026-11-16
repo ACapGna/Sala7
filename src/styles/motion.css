@@ -1,0 +1,7 @@
+/* Movimiento extra del proyecto: entrada suave de página y respeto a "reducir movimiento" */
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+main#page>*{animation:pageIn .45s cubic-bezier(.2,.8,.2,1) both}
+.rail:nth-child(2){animation-delay:.05s}.rail:nth-child(3){animation-delay:.1s}.rail:nth-child(4){animation-delay:.15s}
+nav button.tb{transition:color .25s,background .25s,transform .25s}
+nav button.tb:active{transform:scale(.94)}
+@media(prefers-reduced-motion:reduce){main#page>*{animation:none}}

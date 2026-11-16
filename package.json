@@ -1,0 +1,19 @@
+{
+  "name": "sala-7",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sala 7: películas, series, anime y manga",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "animate.css": "^4.1.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
