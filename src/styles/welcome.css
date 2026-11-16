@@ -1,0 +1,37 @@
+.wl{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:wlFade .35s ease both}
+.wl.out{animation:wlOut .3s ease both}
+.wl-card{position:relative;width:min(820px,100%);max-height:calc(100dvh - 32px);overflow:auto;display:grid;grid-template-columns:1.05fr 1fr;border-radius:24px;background:linear-gradient(160deg,#1b1b20,#0a0a0c);border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.18);animation:wlPop .5s cubic-bezier(.2,.9,.2,1) both}
+.wl.out .wl-card{animation:wlCardOut .3s ease both}
+.wl-art{position:relative;min-height:380px;overflow:hidden;background:#0c0c0f}
+.wl-art img{position:absolute;inset:6% 4% 4% 4%;width:92%;height:90%;object-fit:contain;opacity:0;transition:opacity .6s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.55))}
+.wl.hasimg .wl-art{background:radial-gradient(360px 300px at 50% 45%,rgba(255,255,255,.28),transparent 70%),linear-gradient(160deg,#26262c,#08080a)}
+.wl.hasimg .wl-art img{opacity:1;animation:wlFloat 5s ease-in-out infinite}
+.wl-art::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 55%,#0e0e11),linear-gradient(0deg,rgba(0,0,0,.45),transparent 40%)}
+.wl-fb{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(420px 320px at 50% 40%,rgba(255,255,255,.22),transparent 70%),linear-gradient(160deg,#26262c,#08080a)}
+.wl-fb span{font:800 150px/1 'Inter Tight',sans-serif;background:linear-gradient(135deg,#fff,#b9bdc7 55%,#6d717c);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 12px 30px rgba(255,255,255,.18))}
+.wl.hasimg .wl-fb{display:none}
+.wl-body{padding:44px 36px 36px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.wl-kicker{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--mut,#8b8b99)}
+.wl-body h2{margin:0;font:800 56px/1 'Inter Tight',sans-serif;letter-spacing:-.03em;background:linear-gradient(110deg,#fff 20%,#9aa0ad 45%,#fff 70%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wlMetal 6s linear infinite}
+.wl-body p{margin:0;color:#c3c5cd;line-height:1.55;font-size:15px}
+.wl-act{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:8px}
+.wl-go{padding:12px 28px;font-size:15px}
+.wl-chk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut,#8b8b99);cursor:pointer}
+.wl-chk input{accent-color:#e9ebf0;width:16px;height:16px}
+.wl-x{position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(10,10,12,.7);color:#fff;font-size:15px;cursor:pointer;transition:transform .25s,background .25s}
+.wl-x:hover{background:rgba(255,255,255,.18);transform:rotate(90deg)}
+@keyframes wlFade{from{opacity:0}to{opacity:1}}
+@keyframes wlOut{to{opacity:0}}
+@keyframes wlPop{from{opacity:0;transform:translateY(26px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes wlCardOut{to{opacity:0;transform:translateY(14px) scale(.96)}}
+@keyframes wlFloat{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+@keyframes wlMetal{to{background-position:-200% 0}}
+@media(max-width:700px){
+  .wl-card{grid-template-columns:1fr}
+  .wl-art{min-height:0;height:min(62vw,280px)}
+  .wl-art::after{background:linear-gradient(0deg,#0e0e11,transparent 55%)}
+  .wl-fb span{font-size:100px}
+  .wl-body{padding:22px 22px 26px}
+  .wl-body h2{font-size:42px}
+}
+@media(prefers-reduced-motion:reduce){.wl,.wl-card,.wl-art img,.wl-body h2{animation:none!important}.wl.hasimg .wl-art img{opacity:1}}
